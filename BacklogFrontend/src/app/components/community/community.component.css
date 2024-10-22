@@ -1,0 +1,38 @@
+.top-users-container {
+    display: flex;
+    overflow-x: auto; 
+    white-space: nowrap; 
+    padding: 10px; 
+}
+
+.top-users {
+    min-width: 150px; 
+    max-width: 150px; 
+    margin-right: 10px; 
+    text-align: center; 
+    overflow: hidden; 
+}
+
+.top-users img {
+    max-width: 100%;
+    height: auto; 
+    cursor: pointer;
+}
+.card-title {
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    display: block;
+    max-width: 100%; 
+    box-sizing: border-box;
+}
+
+.card-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block; 
+    max-width: 100%;
+    box-sizing: border-box;
+}

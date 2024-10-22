@@ -1,0 +1,49 @@
+.pop-games-container{
+    display: flex;
+    overflow-x: auto; 
+    white-space: nowrap; 
+    padding: 10px; 
+}
+
+.pop-games {
+    min-width: 150px; 
+    max-width: 150px; 
+    margin-right: 10px; 
+    text-align: center; 
+    overflow: hidden; 
+}
+
+.pop-games img {
+    max-width: 100%;
+    height: auto; 
+    cursor: pointer;
+}
+
+.card-title {
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    display: block;
+    max-width: 100%; 
+    box-sizing: border-box;
+}
+
+.card-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block; 
+    margin-bottom: 5px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button.card-text {
+    margin-top: 10px;
+}
