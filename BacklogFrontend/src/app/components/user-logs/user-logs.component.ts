@@ -16,14 +16,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user-logs.component.css'
 })
 export class UserLogsComponent {
-  loggedIn: boolean = false;
+  // loggedIn: boolean = false;
   display: boolean[] = [];
   userLogs:RetrieveBackLogDTO[] = [];
+  updateLog:RetrieveBackLogDTO = {} as RetrieveBackLogDTO;
   allLogs:ProgressLog[] = [];
   userGames: GameAPI[] = [];
   updatedGame = {} as RetrieveBackLogDTO;
   currentUser = {} as User;
   test:BackLogDTO = {} as BackLogDTO;
+  yourBacklog: boolean = false;
 
   constructor(
     private backendService:BackendService,
@@ -32,12 +34,12 @@ export class UserLogsComponent {
   ) {}
 
   ngOnInit() {
-    this.getGamesById();
     this.getCurrentUser();
   }
 
   getGamesById() {
-    this.backendService.getLogByUserIdDTO(1).subscribe(response => {
+    console.log(this.currentUser.id);
+    this.backendService.getLogByUserIdDTO(this.currentUser.id).subscribe(response => {
       console.log(response);
       this.userLogs = response;
       this.display = new Array(this.userLogs.length).fill(false); // Initialize the display array
@@ -48,16 +50,33 @@ export class UserLogsComponent {
     this.router.navigate(['details/', gameId]);
   }
 
-  updateGame(updatedLog:RetrieveBackLogDTO){
+  updateGame(updatedLog:RetrieveBackLogDTO, index:number){
     this.test.gameId = updatedLog.game.id;
-    this.test.status = updatedLog.status;
-    this.test.playTime = updatedLog.playTime;
+
+    if (this.updateLog.status)
+    {
+      this.test.status = this.updateLog.status;
+    }
+    else
+    {
+      this.test.status = updatedLog.status;
+    }
+    if (this.updateLog.playTime)
+      {
+        this.test.playTime = this.updateLog.playTime;
+      }
+      else
+      {
+        this.test.playTime = updatedLog.playTime;
+      }
     this.test.order = updatedLog.order
-    this.backendService.updateProgressLog(1, this.test).subscribe(response => {
+    this.backendService.updateProgressLog(this.currentUser.id, this.test).subscribe(response => {
       console.log(response);
-      updatedLog.playTime = response.playtime;
-      updatedLog.status = response.status;
+      this.userLogs[index].playTime = response.playtime;
+      this.userLogs[index].status = response.status;
       updatedLog.order = response.order;
+      this.updateLog = {} as RetrieveBackLogDTO;
+    
     });
     if(updatedLog.status == "Complete")
     {
@@ -71,14 +90,23 @@ export class UserLogsComponent {
   getCurrentUser(){
     this.activatedRoute.paramMap.subscribe((params) => {
       let id: number = Number(params.get('id'));
-
       this.backendService.getUserById(id).subscribe((response) => {
         console.log(response);
         this.currentUser = response;
+        if(this.currentUser.id == this.backendService.currentUser.id){
+          this.yourBacklog = true;
+        }
+        else{
+          this.yourBacklog = false;
+        }
+        this.getGamesById();
       });
 
      
     });
+  }
+
+  validateCurrentUser(){
   }
 
   displayToggle(index:number){
@@ -90,7 +118,7 @@ export class UserLogsComponent {
     moveItemInArray(this.userLogs, event.previousIndex, event.currentIndex);
     this.userLogs.forEach((log, index) => {
       log.order = index;
-      this.updateGame(log);
+      this.updateGame(log, index);
     });
   }
 

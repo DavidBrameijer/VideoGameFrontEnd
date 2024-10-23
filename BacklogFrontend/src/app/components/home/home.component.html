@@ -8,7 +8,7 @@
         <h5 class="card-title">{{ g.name }}</h5>
         <p class="card-text">{{ g.total_rating }}</p>
         <p class="card-text">{{g.genres[0].name}}</p>
-        <button class="card-text" (click)="addToBacklog(1, g.id)">Add to backlog</button>
+        <button class="card-text" (click)="addToBacklog(currentUser.id, g.id)">Add to backlog</button>
       </div>
     </div>
     }
@@ -22,7 +22,7 @@
           <h5 class="card-title">{{ g.name }}</h5>
           <p class="card-text">{{ g.total_rating }}</p>
           <p class="card-text">{{g.genres[0].name}}</p>
-          <button class="card-text" (click)="addToBacklog(1, g.id)">Add to backlog</button>
+          <button class="card-text" (click)="addToBacklog(currentUser.id, g.id)">Add to backlog</button>
         </div>
       </div>
       }
@@ -36,7 +36,7 @@
           <h5 class="card-title">{{ g.name }}</h5>
           <p class="card-text">{{ g.total_rating }}</p>
           <p class="card-text">{{g.genres[0].name}}</p>
-          <button class="card-text" (click)="addToBacklog(1, g.id)">Add to backlog</button>
+          <button class="card-text" (click)="addToBacklog(currentUser.id, g.id)">Add to backlog</button>
         </div>
       </div>
       }
@@ -50,7 +50,7 @@
           <h5 class="card-title">{{ g.name }}</h5>
           <p class="card-text">{{ g.total_rating }}</p>
           <p class="card-text">{{g.genres[0].name}}</p>
-          <button class="card-text" (click)="addToBacklog(1, g.id)">Add to backlog</button>
+          <button class="card-text" (click)="addToBacklog(currentUser.id, g.id)">Add to backlog</button>
         </div>
       </div>
       }

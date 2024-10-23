@@ -11,8 +11,10 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class BackendService {
-  url:string = "http://localhost:5264/"; //ALAIN
+  url:string = environment.apiDomain; //ALAIN
   // url:string = environment.apiDomain; //David
+  currentUser:User = {} as User;
+
   constructor(
     private http:HttpClient,
     private router: Router
@@ -115,12 +117,12 @@ export class BackendService {
 
   addFriend(userId:number, friendId:number):Observable<User>
   {
-    return this.http.post<User>(`${this.url}/friends/${userId}/${friendId}`, {});
+    return this.http.post<User>(`${this.url}friends/${userId}/${friendId}`, {});
   }
 
-  deleteFriend(userId:number, friendId:number):Observable<User>
+  deleteFriend(userId:number, friendId:number):Observable<string>
   {
-    return this.http.delete<User>(`${this.url}friends/${userId}/${friendId}`);
+    return this.http.delete<string>(`${this.url}friends/${userId}/${friendId}`);
   }
 
 
@@ -134,11 +136,17 @@ export class BackendService {
     return this.http.put<User>(`${this.url}XP/${u.id}`, u);
   }
 
-  
+  navigateToBacklog(userId:number){
+    this.router.navigate(['backlog/', userId]);
+  }
   
 
   navigateToDetails(gameId: number){
     this.router.navigate(['details/', gameId]);
+  }
+
+  navigateToProfile(id:number){
+    this.router.navigate(['profile/', id]);
   }
   
   //videos

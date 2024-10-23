@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BackLogDTO } from '../../models/progresslog';
 import { YoutubePlayerComponent } from '../youtube-player/youtube-player.component';
 import { CommonModule } from '@angular/common';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-game-details',
@@ -19,6 +20,7 @@ export class GameDetailsComponent {
   currentGameVideos: GameVideo[] = {} as GameVideo[];
   showMore: Boolean = false;
   similarGames:GameAPI[] = [];
+  currentUser = {} as User;
 
   constructor(
     private backendService: BackendService,
@@ -26,9 +28,23 @@ export class GameDetailsComponent {
   ) {}
 
   ngOnInit() {
+    // this.getCurrentUser();
     this.displayGameInfo();
     this.getSimilarGames();
   }
+
+  // getCurrentUser(){
+  //   this.activatedRoute.paramMap.subscribe((params) => {
+  //     let id: number = Number(params.get('id'));
+
+  //     this.backendService.getUserById(id).subscribe((response) => {
+  //       console.log(response);
+  //       this.currentUser = response;
+  //     });
+
+     
+  //   });
+  // }
 
   displayGameInfo() {
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -147,7 +163,7 @@ export class GameDetailsComponent {
   }
   addToBacklog(userId:number, gameId:number){
     this.newProgressLog.gameId = gameId;
-    this.newProgressLog.userId = userId;
+    this.newProgressLog.userId = this.backendService.currentUser.id;
     console.log(this.newProgressLog);
     this.backendService.addProgressLog(this.newProgressLog).subscribe(response => {
       console.log(response);

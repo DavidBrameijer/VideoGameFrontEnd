@@ -25,7 +25,7 @@
 
     <p>Summary:</p>
     <p>{{currentGame.summary}}</p>
-    <button (click)="addToBacklog(1, currentGame.id)">Add to backlog</button>
+    <button (click)="addToBacklog(currentUser.id, currentGame.id)">Add to backlog</button>
     <h2>Similar Games</h2>
     <div class="similar-games-container">
         @for (g of similarGames; track $index) {

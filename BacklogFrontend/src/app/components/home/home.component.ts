@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { GameAPI, Genre, Platform } from '../../models/game';
 import { BackendService } from '../../services/backend.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BackLogDTO } from '../../models/progresslog';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-home',
@@ -14,18 +15,22 @@ import { BackLogDTO } from '../../models/progresslog';
 export class HomeComponent {
 
   // googleUser: SocialUser = {} as SocialUser;
-  loggedIn: boolean = false;
+  // loggedIn: boolean = false;
   allGames:GameAPI[] = [];
   switchGames: GameAPI[] = [];
   PsGames: GameAPI[] = [];
   XboxGames: GameAPI[] = [];
   newProgressLog:BackLogDTO = {} as BackLogDTO;
+  currentUser = {} as User;
+  
   constructor(
     private backendService:BackendService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.getCurrentUser();
     this.displayGames();
     this.getSwitchGames();
     this.getPlaystationGames();
@@ -35,6 +40,19 @@ export class HomeComponent {
     this.backendService.getGames().subscribe(response => {
       console.log(response);
       this.allGames = response;
+    });
+  }
+
+  getCurrentUser(){
+    this.activatedRoute.paramMap.subscribe((params) => {
+      let id: number = Number(params.get('id'));
+
+      this.backendService.getUserById(id).subscribe((response) => {
+        console.log(response);
+        this.currentUser = response;
+      });
+
+     
     });
   }
 
@@ -89,7 +107,7 @@ export class HomeComponent {
 
   addToBacklog(userId:number, gameId:number){
     this.newProgressLog.gameId = gameId;
-    this.newProgressLog.userId = userId;
+    this.newProgressLog.userId = this.backendService.currentUser.id;
     console.log(this.newProgressLog);
     this.backendService.addProgressLog(this.newProgressLog).subscribe(response => {
       console.log(response);
