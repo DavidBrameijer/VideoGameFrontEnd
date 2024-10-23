@@ -15,6 +15,7 @@ import { User } from './models/user';
 })
 export class AppComponent {
   title = 'BacklogFrontend';
+  
 
   googleUser: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;

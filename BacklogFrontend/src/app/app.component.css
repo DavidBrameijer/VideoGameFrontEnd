@@ -1,22 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 .links {
-    font-size: 27px;
-    margin-right: 15px;
+  font-size: 27px;
+  margin-right: 15px;
+  font-family: 'Press Start 2P', sans-serif;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
 }
+
+.links:hover {
+    color: #00ccff;
+    text-shadow: 0 0 5px #00ccff, 0 0 10px #ff33ff; 
+  }
+  
+  .links::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00ccff;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .links:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
 
 .header {
     display: flex;
     align-items: center;
 
-    padding: 10px; /* Optional: add some padding */
-    background-color: white; /* Optional: set a background color */
+    padding: 10px;
     border-bottom: 1px solid #ccc; /* Optional: add a border */
     position: fixed; /* Keep the header fixed */
     top: 0; /* Position at the top */
     left: 0; /* Align to the left */
     width: 100%; /* Full width */
     z-index: 1000; /* Ensure it stays on top of other elements */
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-bottom: 2px solid #ffcc00; /* Golden arcade-like border */
 }
 
 body{
+    background: linear-gradient(45deg, #000, #111);
+    color: #fff;
+    font-family: 'Press Start 2P', sans-serif; /* Retro arcade font */
     padding-top:60px;
+    height: 100vh;
 }
+
+router-outlet {
+    display: block;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  button {
+    background-color: #ff33ff; /* Magenta */
+    color: white;
+    font-family: 'Press Start 2P', sans-serif;
+    padding: 10px 20px;
+    border: 3px solid #00ccff; /* Electric blue border */
+    box-shadow: 0 0 10px #ff33ff, 0 0 15px #00ccff;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00ccff, 0 0 20px #ff33ff;
+  }
