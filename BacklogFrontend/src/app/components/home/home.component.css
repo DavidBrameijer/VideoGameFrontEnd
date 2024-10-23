@@ -2,31 +2,39 @@
     display: flex;
     overflow-x: auto; 
     white-space: nowrap; 
-    padding: 10px; 
+    padding: 10px;
+    width: 75%; /* Set to desired width */
+    height: 50%; /* Set to desired height */
+    box-sizing: border-box; /* Ensure padding is included in width/height */
 }
 
 .pop-games {
-    min-width: 150px; 
-    max-width: 150px; 
-    margin-right: 10px; 
+    min-width: 200px; 
+    max-width: 200px; 
+    margin-right: 5px; 
     text-align: center; 
     overflow: hidden; 
 }
 
 .pop-games img {
     max-width: 100%;
-    height: auto; 
+    height: 50%; 
     cursor: pointer;
 }
 
 .card-title {
-    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Use the new font */
+    font-weight: 700; /* Bold */
+    margin: 5px 0;
+    font-size: 110%;
     overflow: hidden;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    white-space: normal;
     text-overflow: ellipsis; 
     display: block;
     max-width: 100%; 
     box-sizing: border-box;
+    line-height: 1.2; /* Adjust line height for better readability */
 }
 
 .card-text {
@@ -34,16 +42,50 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block; 
-    margin-bottom: 5px;
-    max-width: 100%;
+    margin: 0 5px;
+    max-width: 50%;
     box-sizing: border-box;
 }
+
+.genre {
+    text-align: right;
+}
+
 .card-body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    height: auto;
 }
 
-button.card-text {
-    margin-top: 10px;
+.card-info {
+    display: flex;
+    justify-content: space-between; /* Space between rating and genre */
+    width: 100%; /* Make it take full width */
+    margin-top: auto;
 }
+
+
+.button {
+    display: block; /* Make buttons block level */
+    width: 200px; /* Full width */
+    padding: 10px; /* Button padding */
+    margin-top: 5px; /* Space between buttons */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners for buttons */
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darken button on hover */
+  }
+
+  h1{
+    font-family: 'Montserrat', sans-serif; /* Use the new font */
+    font-weight: 700; /* Bold */
+  }
