@@ -11,8 +11,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class BackendService {
-  url:string = environment.apiDomain; //ALAIN
-  // url:string = environment.apiDomain; //David
+  url:string = environment.apiDomain;
   currentUser:User = {} as User;
 
   constructor(

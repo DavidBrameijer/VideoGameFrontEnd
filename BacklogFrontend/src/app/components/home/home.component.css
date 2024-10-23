@@ -3,7 +3,7 @@
     overflow-x: auto; 
     white-space: nowrap; 
     padding: 10px;
-    width: 75%; /* Set to desired width */
+    width: 80%; /* Set to desired width */
     height: 50%; /* Set to desired height */
     box-sizing: border-box; /* Ensure padding is included in width/height */
 }
@@ -35,6 +35,7 @@
     max-width: 100%; 
     box-sizing: border-box;
     line-height: 1.2; /* Adjust line height for better readability */
+    cursor: pointer;
 }
 
 .card-text {
@@ -57,7 +58,7 @@
     align-items: center;
     padding: 5px;
     justify-content: space-between;
-    height: auto;
+    height: 30%;
 }
 
 .card-info {
