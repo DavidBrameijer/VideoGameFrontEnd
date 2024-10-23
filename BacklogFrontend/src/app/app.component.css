@@ -1,4 +1,22 @@
 .links {
-    font-size: 18px;
-    margin-right: 20px;
+    font-size: 27px;
+    margin-right: 15px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+
+    padding: 10px; /* Optional: add some padding */
+    background-color: white; /* Optional: set a background color */
+    border-bottom: 1px solid #ccc; /* Optional: add a border */
+    position: fixed; /* Keep the header fixed */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+body{
+    padding-top:60px;
 }

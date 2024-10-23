@@ -4,11 +4,12 @@ import { BackendService } from '../../services/backend.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackLogDTO } from '../../models/progresslog';
 import { User } from '../../models/user';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [DecimalPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -112,6 +113,10 @@ export class HomeComponent {
     this.backendService.addProgressLog(this.newProgressLog).subscribe(response => {
       console.log(response);
     });
+  }
+  
+  getUpdatedImage(url:string): string{
+    return url.replace("t_thumb", "t_original");
   }
   
 }
