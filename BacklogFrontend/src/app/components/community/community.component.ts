@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CommunityComponent {
   allUsers:User[] = [];
+  filteredUsers:User[] = [];
 
   constructor(
     private backendService: BackendService,
@@ -29,4 +30,9 @@ export class CommunityComponent {
       this.allUsers.sort((a, b) => b.totalXp - a.totalXp);
     })
   }
+
+  filterUsers(){
+
+  }
+
 }

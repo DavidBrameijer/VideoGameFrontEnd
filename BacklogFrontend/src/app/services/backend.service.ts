@@ -11,8 +11,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class BackendService {
-  // url:string = "http://localhost:5264/"; //ALAIN
-  url:string = environment.apiDomain; //David
+  url:string = "http://localhost:5264/"; //ALAIN
+  // url:string = environment.apiDomain; //David
   constructor(
     private http:HttpClient,
     private router: Router
