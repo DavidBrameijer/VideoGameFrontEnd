@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user-logs.component.css'
 })
 export class UserLogsComponent {
-  loggedIn: boolean = false;
+  // loggedIn: boolean = false;
   display: boolean[] = [];
   userLogs:RetrieveBackLogDTO[] = [];
   allLogs:ProgressLog[] = [];
@@ -32,12 +32,12 @@ export class UserLogsComponent {
   ) {}
 
   ngOnInit() {
-    this.getGamesById();
     this.getCurrentUser();
   }
 
   getGamesById() {
-    this.backendService.getLogByUserIdDTO(1).subscribe(response => {
+    console.log(this.currentUser.id);
+    this.backendService.getLogByUserIdDTO(this.currentUser.id).subscribe(response => {
       console.log(response);
       this.userLogs = response;
       this.display = new Array(this.userLogs.length).fill(false); // Initialize the display array
@@ -53,7 +53,7 @@ export class UserLogsComponent {
     this.test.status = updatedLog.status;
     this.test.playTime = updatedLog.playTime;
     this.test.order = updatedLog.order
-    this.backendService.updateProgressLog(1, this.test).subscribe(response => {
+    this.backendService.updateProgressLog(this.currentUser.id, this.test).subscribe(response => {
       console.log(response);
       updatedLog.playTime = response.playtime;
       updatedLog.status = response.status;
@@ -75,6 +75,7 @@ export class UserLogsComponent {
       this.backendService.getUserById(id).subscribe((response) => {
         console.log(response);
         this.currentUser = response;
+        this.getGamesById();
       });
 
      

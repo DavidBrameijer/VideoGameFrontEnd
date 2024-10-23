@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-  isLoggedIn: Boolean = false;
+  // isLoggedIn: Boolean = false;
   currentUser:User = {} as User;
   friends: User[] = [];
   numGames:number = {} as number;

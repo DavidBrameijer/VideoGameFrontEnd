@@ -13,6 +13,8 @@ import { environment } from '../../environments/environment';
 export class BackendService {
   // url:string = "http://localhost:5264/"; //ALAIN
   url:string = environment.apiDomain; //David
+  currentUser:User = {} as User;
+
   constructor(
     private http:HttpClient,
     private router: Router
@@ -134,7 +136,9 @@ export class BackendService {
     return this.http.put<User>(`${this.url}XP/${u.id}`, u);
   }
 
-  
+  navigateToBacklog(userId:number){
+    this.router.navigate(['backlog/', userId]);
+  }
   
 
   navigateToDetails(gameId: number){

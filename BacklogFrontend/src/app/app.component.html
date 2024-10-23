@@ -1,9 +1,19 @@
 <!-- <app-home></app-home> -->
+@if (!loggedIn) {
+    <!-- Custom component that handles log in -->
+    <asl-google-signin-button></asl-google-signin-button>
+  }
+  @else {
+    <!-- calls our log out method -->
+    <button class="btn btn-outline-dark" (click)="signOut()">
+      Sign Out
+    </button>
+  }
 <a class="links" routerLink="">Home</a>
-<a class="links" routerLink="/backlog/1">Backlog</a>
+<a class="links" routerLink="/backlog/{{currentUser.id}}">Backlog</a>
 <a class="links" routerLink="/search">Search</a>
 <a class="links" routerLink="/community">Community</a>
-<a class="links" routerLink="/profile/1">Profile</a>
+<a class="links" routerLink="/profile/{{currentUser.id}}">Profile</a>
 <!-- <app-user-logs></app-user-logs> -->
 
 <router-outlet></router-outlet>
