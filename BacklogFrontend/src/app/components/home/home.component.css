@@ -2,45 +2,67 @@
     display: flex;
     overflow-x: auto; 
     white-space: nowrap; 
-    padding: 10px;
-    width: 75%; /* Set to desired width */
-    height: 50%; /* Set to desired height */
-    box-sizing: border-box; /* Ensure padding is included in width/height */
+    padding: 15px;
+    width: 90%;
+    height: 50%;
+    margin: 0 auto;
+    background: #1e1e1e;
+     /* Dark arcade cabinet-like background */
+    border: 3px solid #f5f5f5; /* Light border to resemble an arcade screen */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Subtle glowing effect */
+    border-radius: 10px;
 }
 
 .pop-games {
     min-width: 200px; 
     max-width: 200px; 
-    margin-right: 5px; 
+    margin-right: 15px; 
+    padding: 10px;
     text-align: center; 
+    background-color: #222; 
+    /* Darker background for each card */
+    border: 2px solid #f90; /* Neon orange border */
+    transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden; 
+}
+.pop-games:hover {
+    transform: scale(1.05); /* Slight scale-up on hover */
+    box-shadow: 0 0 10px #f90, 0 0 20px #f90; /* Neon glow effect */
 }
 
 .pop-games img {
     max-width: 100%;
     height: 50%; 
     cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.pop-games img:hover {
+    transform: scale(1.1); /* Zoom in slightly on hover */
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; /* Glowing effect */
 }
 
 .card-title {
-    font-family: 'Montserrat', sans-serif; /* Use the new font */
-    font-weight: 700; /* Bold */
-    margin: 5px 0;
-    font-size: 110%;
+    font-family: 'Press Start 2P', cursive; /* Continue the arcade font */
+    font-size: 85%;
     overflow: hidden;
-    /* white-space: nowrap; */
+    color: #f0f0f0;
+    white-space: nowrap;
     white-space: normal;
     text-overflow: ellipsis; 
     display: block;
     max-width: 100%; 
     box-sizing: border-box;
+    text-shadow: 0 2px 4px #000; /* Text shadow for better readability */
+    margin: 5px 0;
     line-height: 1.2; /* Adjust line height for better readability */
 }
 
 .card-text {
+    font-family: 'Montserrat', sans-serif;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: #ccc; /* Lighter text for better contrast */
     display: block; 
     margin: 0 5px;
     max-width: 50%;
@@ -57,7 +79,7 @@
     align-items: center;
     padding: 5px;
     justify-content: space-between;
-    height: auto;
+    height: 30%;
 }
 
 .card-info {
@@ -69,23 +91,34 @@
 
 
 .button {
-    display: block; /* Make buttons block level */
-    width: 200px; /* Full width */
-    padding: 10px; /* Button padding */
-    margin-top: 5px; /* Space between buttons */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners for buttons */
-    background-color: #007bff; /* Primary button color */
-    color: white; /* Text color */
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none; 
+    border-radius: 5px; 
+    background-color: #00cc66; /*Neon Greeeennn */
+    color: #fff; 
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
   }
   
   .button:hover {
-    background-color: #0056b3; /* Darken button on hover */
+    background-color: #00ff99; /* Brighter neon green on hover */
+    box-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99; /* Glowing effect */
   }
 
   h1{
     font-family: 'Montserrat', sans-serif; /* Use the new font */
-    font-weight: 700; /* Bold */
+    color: #f5f5f5;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 6px #000;
+  }
+  body {
+    display: block;
+    width: 100vw;  /* Full width */
+    height: 100vh; /* Full height */
+    background: linear-gradient(45deg, #000, #111); /* Apply the same background */
   }

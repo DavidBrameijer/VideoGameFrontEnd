@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user-logs.component.css'
 })
 export class UserLogsComponent {
-  // loggedIn: boolean = false;
+  
   display: boolean[] = [];
   userLogs:RetrieveBackLogDTO[] = [];
   updateLog:RetrieveBackLogDTO = {} as RetrieveBackLogDTO;
@@ -26,6 +26,8 @@ export class UserLogsComponent {
   currentUser = {} as User;
   test:BackLogDTO = {} as BackLogDTO;
   yourBacklog: boolean = false;
+  hideCompleted: boolean = false;
+  showCompleted:boolean = false;
 
   constructor(
     private backendService:BackendService,
@@ -122,10 +124,10 @@ export class UserLogsComponent {
     });
   }
 
+
+
     getUpdatedImage(url:string): string{
     return url.replace("t_thumb", "t_original");
   }
-
-  
 
 }

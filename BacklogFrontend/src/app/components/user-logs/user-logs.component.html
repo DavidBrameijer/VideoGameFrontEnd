@@ -1,8 +1,14 @@
 @if (yourBacklog) {
   <h1>Your current backlog:</h1>
+  <label>
+    <input type="checkbox" [(ngModel)]="hideCompleted" />Show Backlog
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="showCompleted" /> Show completed games
+  </label>
 <div cdkDropList (cdkDropListDropped)="drop($event)">
     @for (l of userLogs; track $index) {
-        <div cdkDrag>
+        <div *ngIf="(!hideCompleted && !showCompleted) || (showCompleted && l.status === 'Complete') || (hideCompleted && l.status !== 'Complete')" cdkDrag>
               <div class="card">
                 <div class="card-content">
                   <img class="cover-image" [src]="getUpdatedImage(l.game.cover.url)" alt="{{ l.game.name }} cover image"/>
