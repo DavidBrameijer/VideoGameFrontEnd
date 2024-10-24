@@ -108,8 +108,6 @@ export class UserLogsComponent {
     });
   }
 
-  validateCurrentUser(){
-  }
 
   displayToggle(index:number){
     this.display[index] = !this.display[index];

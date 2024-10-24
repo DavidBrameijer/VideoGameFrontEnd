@@ -114,11 +114,11 @@
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 20px;
-    text-shadow: 0 4px 6px #000;
+    
   }
   body {
     display: block;
-    width: 100vw;  /* Full width */
-    height: 100vh; /* Full height */
-    background: linear-gradient(45deg, #000, #111); /* Apply the same background */
+    width: 100vw; 
+    height: 100vh;
+    background: linear-gradient(45deg, #000, #111);
   }
