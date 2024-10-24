@@ -1,11 +1,14 @@
 @if (yourBacklog) {
   <h1>Your current backlog:</h1>
-  <label>
-    <input type="checkbox" [(ngModel)]="hideCompleted" />Show Backlog
-  </label>
-  <label>
-    <input type="checkbox" [(ngModel)]="showCompleted" /> Show completed games
-  </label>
+  <div class="checkbox-container">
+    <label>
+      <input type="checkbox" [(ngModel)]="hideCompleted" />Show Backlog
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="showCompleted" /> Show completed games
+    </label>
+  </div>
+  
 <div cdkDropList (cdkDropListDropped)="drop($event)">
     @for (l of userLogs; track $index) {
         <div *ngIf="(!hideCompleted && !showCompleted) || (showCompleted && l.status === 'Complete') || (hideCompleted && l.status !== 'Complete')" cdkDrag>
@@ -21,19 +24,20 @@
                     
                     <div *ngIf="display[$index]" class="update-section">
                       <p>Status:</p>
-                      <label for="notStarted{{$index}}">Not Started
-                        <input type="radio" id="notStarted{{$index}}" [(ngModel)]="updateLog.status" value="Not Started"/>
-                      </label>
-              
-                      <label for="inProgress{{$index}}">In-Progress
-                        <input type="radio" id="inProgress{{$index}}" [(ngModel)]="updateLog.status" value="In-Progress"/>
-                      </label>
-              
-                      <label for="complete{{$index}}">Complete
-                        <input type="radio" id="complete{{$index}}" [(ngModel)]="updateLog.status" value="Complete"/>
-                      </label>
-                      
-                      <div>
+                      <div class="radio-container">
+                        <label for="notStarted{{$index}}">Not Started
+                          <input type="radio" id="notStarted{{$index}}" [(ngModel)]="updateLog.status" value="Not Started"/>
+                        </label>
+                
+                        <label for="inProgress{{$index}}">In-Progress
+                          <input type="radio" id="inProgress{{$index}}" [(ngModel)]="updateLog.status" value="In-Progress"/>
+                        </label>
+                
+                        <label for="complete{{$index}}">Complete
+                          <input type="radio" id="complete{{$index}}" [(ngModel)]="updateLog.status" value="Complete"/>
+                        </label>
+                      </div>
+                      <div class="playtime-section">
                         <label for="playTime{{$index}}">Play Time:</label>
                         <input type="number" id="playTime{{$index}}" [(ngModel)]="updateLog.playTime" placeholder="Enter current playtime" class="playtime-input"/>
                       </div>

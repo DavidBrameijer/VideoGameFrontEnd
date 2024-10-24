@@ -1,12 +1,15 @@
 <body>
     <h1>{{currentGame.name}}</h1>
     <img [src]="getUpdatedImage(currentGame.cover.url)" class="current-img"/>
-    <p> Genres: {{getGenres(currentGame.genres)}}</p>
-    <p>Rating: {{currentGame.total_rating}}</p>
-    <p>Platforms: {{getPlatforms(currentGame.platforms)}}</p>
-    <p>Involved Companies: {{getCompanies(currentGame.involved_companies)}}</p>
-    <p>Release Date: {{isDateInstance(getEarliestDate(currentGame.release_dates))}}</p>
-    <h2>Trailer</h2>
+    <div class="summary-section">
+        <p> Genres: {{getGenres(currentGame.genres)}}</p>
+        <p>Rating: {{currentGame.total_rating}}</p>
+        <p>Platforms: {{getPlatforms(currentGame.platforms)}}</p>
+        <p>Involved Companies: {{getCompanies(currentGame.involved_companies)}}</p>
+        <p>Release Date: {{isDateInstance(getEarliestDate(currentGame.release_dates))}}</p>
+    </div>
+
+    <h2 class="trailer">Trailer</h2>
     <div>
         @if (currentGameVideos.length > 0 && !showMore){
         <div>
@@ -23,18 +26,24 @@
     </div>
     <button class="show-more" (click)="toggleShowMore()">{{showMore ? 'Show Less' : 'Show More'}}</button>
 
-    <p>Summary:</p>
-    <p>{{currentGame.summary}}</p>
-    <button (click)="addToBacklog(currentUser.id, currentGame.id)">Add to backlog</button>
-    <h2>Similar Games</h2>
+    <div class="summary-section">
+        <p>Summary:</p>
+        <p>{{currentGame.summary}}</p>
+    </div>
+
+    <button class="add-to-backlog" (click)="addToBacklog(currentUser.id, currentGame.id)">Add to backlog</button>
+    <h2 class="similar-games">Similar Games</h2>
     <div class="similar-games-container">
         @for (g of similarGames; track $index) {
         <div class="similar-game card">
-            <img [src]="g.cover.url" class="card-img-top" (click)="goToDetails(g.id)" alt="{{g.name}}" />
+            <img [src]="getUpdatedImage(g.cover.url)" class="card-img-top" (click)="goToDetails(g.id)" alt="{{g.name}}" />
             <div class="card-body">
                 <h5 class="card-title">{{g.name}}</h5>
-                <p class="card-text">{{g.total_rating}}</p>
-                <p class="card-text">{{getOneGenre(g.genres)}}</p>
+                <div class="card-info">
+                    <p class="card-text">{{g.total_rating | number: '1.1-1'}}</p>
+                    <p class="card-text genre">{{getOneGenre(g.genres)}}</p>
+                </div>
+
             </div>
         </div>
         }

@@ -1,10 +1,16 @@
 .card {
     width: 50rem; /* Card width */
-    border: 1px solid #ccc; /* Card border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 2px solid #00ff99; /* Card border */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.6); /*Neon glow effect*/
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); */
+    background-color: #1b1b1b; /* Dark background to match the theme */
+    color: #fff;
     overflow: hidden; /* To ensure rounded corners apply to the image */
-    margin: auto;
+    font-family: 'Press Start 2P', sans-serif;
+    padding: 10px;
+    margin: 20px auto;
+    /* margin: auto */
   }
   
   .card-content {
@@ -15,37 +21,93 @@
   .cover-image {
     width: 200px; /* Fixed width for the cover image */
     height: 300px; /* Maintain aspect ratio */
+    border: 2px solid #00ff99; /* Same glowing border for the image */
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.6); /* Neon glow for the image */
   }
   
   .text-content {
     padding: 20px; /* Add padding around text content */
     flex: 1; /* Allow the text content to fill remaining space */
+
   }
+  h1 {
+    font-family: 'Press Start 2P', sans-serif;
+    margin: 0 0 10px;
+  }
+   h2 {
+    font-family: 'Press Start 2P', sans-serif; /* Retro arcade font */
+    font-size: 1.5rem;
+    white-space: normal;
+    word-wrap: break-word; /* Ensure long text wraps */
+    /* color: #00ff99;  */
+    color: #ffdd00;
+    /* margin: 0 0 10px; */
+  }
+  p {
+    color: #ddd; /* Softer text color for readability */
+}
   
   .button {
-    display: block; /* Make buttons block level */
-    width: 200px; /* Full width */
-    padding: 10px; /* Button padding */
-    margin-top: 10px; /* Space between buttons */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners for buttons */
-    background-color: #007bff; /* Primary button color */
-    color: white; /* Text color */
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    display: block;
+    width: 200px;
+    padding: 10px; 
+    margin-top: 10px;
+    border: none; 
+    border-radius: 5px; 
+    background-color: #007bff; 
+    color: white; 
+    cursor: pointer; 
+    transition: background-color 0.3s, box-shadow 0.3s; 
+    /* box-shadow: 0 0 10px rgba(0, 123, 255, 0.8); */
+    font-family: 'Press Start 2P', sans-serif;
   }
   
   .button:hover {
-    background-color: #0056b3; /* Darken button on hover */
+    background-color: #0056b3; 
+    box-shadow: 0 0 15px rgba(0, 123, 255, 1);
   }
   
   .update-section {
     margin-top: 15px; /* Space above update section */
   }
+
+  .checkbox-container {
+    display: flex;
+    justify-content: center; /* Center the checkboxes */
+    gap: 20px; /* Add space between checkboxes */
+    margin-bottom: 20px; /* Add space below checkboxes */
+  }
+  
+  .checkbox-container label {
+    font-size: 1.2rem; /* Slightly larger font for readability */
+    color: #ff007f; /* Neon color for labels */
+  }
+  
+  .radio-container {
+    display: flex;
+    flex-direction: column; /* Stack radio buttons vertically */
+    gap: 10px; /* Space between each radio button */
+    margin-bottom: 15px; /* Space below radio button section */
+  }
+  
+  .radio-container label {
+    font-size: 1.1rem; /* Larger font for readability */
+    color: #ffdd00; /* Optional: Bright yellow for better visibility */
+  }
+  
+  .playtime-section {
+    margin-top: 10px; /* Add space above playtime input */
+  }
+  
   
   .playtime-input {
-    width: 50%; /* Control width of playtime input */
-    margin-top: 5px; /* Space above input */
+    width: 80%; 
+    margin-top: 5px; 
+    padding: 8px; 
+    border: 1px solid #444; 
+    background-color: #333; 
+    color: #fff; 
+    border-radius: 5px; 
   }
 
   /* *{
@@ -54,4 +116,18 @@
 
   h1{
     text-align: center;
+    /* color: #ff007f; */
   }
+  label {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  input[type="radio"] {
+    margin-left: 10px;
+  }
+

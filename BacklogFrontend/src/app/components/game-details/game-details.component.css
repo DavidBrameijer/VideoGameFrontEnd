@@ -2,68 +2,215 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    margin: 10px;
+    /* margin: 10px; */
+    margin: 20px auto;
+    padding:10px;
+    border-radius: 5px;
+
   }
   
 .youtube-player{
-    width: auto;
+    /* width: auto; */
+    width: 100%;
     height: auto;
     overflow: hidden;
     position: relative;
+    background-color: #222;
+    border: 3px solid #f90; /* Neon orange border for videos */
+    box-shadow: 0 0 10px #f90;
+    padding: 10px;
   }
   
 .show-more{
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    margin-top: 20px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #ff007f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
   }
+
+  .show-more:hover {
+    background-color: #ffdd00;
+    color: #1e1e1e;
+    box-shadow: 0 0 15px #ff007f;
+}
+
+/* Summary Section */
+.summary-section {
+    background: #333;
+    border: 2px solid #f90;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: left;
+}
 
 .similar-games-container {
     display: flex;
     overflow-x: auto; 
     white-space: nowrap; 
-    padding: 10px; 
+    padding: 15px;
+    width: 90%;
+    height: 50%;
+    margin: 0 auto;
+    background: #1e1e1e;
+     /* Dark arcade cabinet-like background */
+    border: 3px solid #f5f5f5; /* Light border to resemble an arcade screen */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Subtle glowing effect */
+    border-radius: 10px;
 }
 
 .similar-game {
-    min-width: 150px; 
-    max-width: 150px; 
-    margin-right: 10px; 
+    min-width: 200px; 
+    max-width: 200px; 
+    margin-right: 15px; 
+    padding: 10px;
     text-align: center; 
+    background-color: #222; 
+    /* Darker background for each card */
+    /* border: 2px solid #f90; */
+    border: 2px solid #00ffcc;
+    transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden; 
+}
+
+.similar-game:hover {
+    transform: scale(1.05); 
+    /* box-shadow: 0 0 10px #f90, 0 0 20px #f90;  */
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
 }
 
 .similar-game img {
     max-width: 100%;
     height: auto; 
     cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-/* .similar-game p {
-    margin: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 100%; 
-    box-sizing: border-box;
-} */
+.similar-game img:hover {
+    transform: scale(1.1); /* Zoom in slightly on hover */
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; /* Glowing effect */
+}
+
+.genre {
+    text-align: right;
+}
 
 .card-title {
-    margin: 0;
+    font-family: 'Press Start 2P', cursive; /* Continue the arcade font */
+    font-size: 85%;
     overflow: hidden;
+    color: #f0f0f0;
     white-space: nowrap;
+    white-space: normal;
     text-overflow: ellipsis; 
     display: block;
     max-width: 100%; 
     box-sizing: border-box;
+    text-shadow: 0 2px 4px #000; /* Text shadow for better readability */
+    margin: 5px 0;
+    line-height: 1.2; /* Adjust line height for better readability */
+    cursor: pointer;
 }
 
 .card-text {
+    font-family: 'Montserrat', sans-serif;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: #ccc; /* Lighter text for better contrast */
     display: block; 
-    max-width: 100%;
+    margin: 0 5px;
+    max-width: 50%;
     box-sizing: border-box;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    height: 30%;
+}
+.card-info {
+    display: flex;
+    justify-content: space-between; /* Space between rating and genre */
+    width: 100%; /* Make it take full width */
+    margin-top: auto;
 }
 .current-img {
     width: 300px;
     height: auto; 
+    border: 3px solid #ff007f; /* Pink neon border */
+    box-shadow: 0 0 15px #ff007f; /* Neon pink glow */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive; /* Arcade font */
+    color: #fff; /* Bright text color */
+    background-color: #1e1e1e; /* Dark background */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Game Title */
+h1 {
+    font-family: 'Press Start 2P', cursive; /* Arcade font */
+    font-size: 2.5rem;
+    color: #ffdd00; /* Neon yellow */
+    /* text-shadow: 0 0 10px #ffdd00, 0 0 20px #ff007f; */
+    margin-bottom: 20px;
+}
+
+/* Game Info Section */
+p {
+    color: #ccc; /* Lighter text for readability */
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.add-to-backlog{
+    font-family: 'Press Start 2P', cursive;
+    background-color: #00ffcc;
+    color: #1e1e1e;
+    border: none;
+    padding: 15px 30px;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.add-to-backlog:hover {
+    background-color: #ffdd00;
+    color: #1e1e1e;
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+/* Video Section */
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffdd00;
+    /* text-shadow: 0 0 10px #ff007f, 0 0 20px #ffdd00; */
+    margin-bottom: 15px;
+}
+
+.trailer {
+    margin-top: 30px; /* More space between currentGame info and Trailer */
+    margin-bottom: 15px;
+}
+
+.similar-games {
+    margin-top: 30px; /* More space between "Add to Backlog" and "Similar Games" */
+    margin-bottom: 15px;
 }
