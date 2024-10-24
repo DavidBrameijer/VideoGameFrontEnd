@@ -1,17 +1,18 @@
-import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, ElementRef, ViewChild, Input } from '@angular/core';
 
-declare var YT: any; // Declare YT to avoid TypeScript errors
+declare var YT: any;
 
 @Component({
   selector: 'app-youtube-player',
   standalone: true,
-  template: '<div #player></div>', // Create a placeholder for the player
+  template: '<div #player></div>',
   styleUrls: ['./youtube-player.component.css']
 })
-export class YoutubePlayerComponent implements OnInit {
-  @ViewChild('player', { static: true }) playerElement!: ElementRef; // Reference to the player div
-  @Input() videoId!: string; // Input property to receive the video ID
-  player: any; // YouTube player instance
+export class YoutubePlayerComponent implements OnInit, OnChanges {
+  @ViewChild('player', { static: true }) playerElement!: ElementRef;
+  @Input() videoId!: string;
+  player: any;
+  isPlayerReady = false;
 
   ngOnInit(): void {
     if (!window['YT']) {
@@ -21,11 +22,21 @@ export class YoutubePlayerComponent implements OnInit {
     }
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['videoId'] && this.player && this.isPlayerReady) {
+      this.player.loadVideoById(this.videoId); // Load the new video
+      this.player.stopVideo(); // Stop the current video
+    }
+  }
+
   createPlayer() {
     this.player = new YT.Player(this.playerElement.nativeElement, {
       height: '390',
       width: '640',
       videoId: this.videoId,
+      playerVars: {
+        autoplay: 0,
+      },
       events: {
         'onReady': this.onPlayerReady.bind(this),
         'onStateChange': this.onPlayerStateChange.bind(this),
@@ -45,8 +56,7 @@ export class YoutubePlayerComponent implements OnInit {
   }
 
   onPlayerReady(event: any) {
-    // Optionally, autoplay the video when the player is ready
-    // event.target.playVideo();
+    this.isPlayerReady = true; // Set the player ready flag
   }
 
   onPlayerStateChange(event: any) {
