@@ -101,10 +101,6 @@ h1, h2{
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effect */
 }
 
-.top-users:hover {
-    transform: translateY(-5px); /* Lift the card slightly on hover */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
-}
 
 .top-users img {
     max-width: 100%;

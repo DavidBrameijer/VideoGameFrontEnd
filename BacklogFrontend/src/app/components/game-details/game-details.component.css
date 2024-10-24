@@ -97,7 +97,7 @@
 
 .similar-game img {
     max-width: 100%;
-    height: auto; 
+    height: 60%; 
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;

@@ -4,7 +4,7 @@
     @for (u of topTen; track $index) {
     <div class="search-item">
         <div class="search-content">
-            <img [src]="u.pfp" class="cover-image" (click)="navigateToProfile(u.id)" />
+            <img [src]="u.pfp" class="cover-image" />
             <div class="text-content">
                 <h2>{{ u.userName }}</h2>
                 <p>Level: {{ u.level }}</p>
@@ -33,7 +33,7 @@
         @for (u of filteredUsers; track $index) {
             <div class="search-item">
                 <div class="search-content">
-                    <img [src]="u.pfp" class="cover-image" (click)="navigateToProfile(u.id)" />
+                    <img [src]="u.pfp" class="cover-image" />
                     <div class="text-content">
                         <h2>{{ u.userName }}</h2>
                         <p>Level: {{ u.level }}</p>
