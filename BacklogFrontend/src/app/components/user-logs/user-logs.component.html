@@ -11,7 +11,9 @@
   
 <div cdkDropList (cdkDropListDropped)="drop($event)">
     @for (l of userLogs; track $index) {
-        <div *ngIf="(!hideCompleted && !showCompleted) || (showCompleted && l.status === 'Complete') || (hideCompleted && l.status !== 'Complete')" cdkDrag>
+      <div cdkDrag>
+
+        <div *ngIf="(!hideCompleted && !showCompleted) || (showCompleted && l.status === 'Complete') || (hideCompleted && l.status !== 'Complete')">
               <div class="card">
                 <div class="card-content">
                   <img class="cover-image" [src]="getUpdatedImage(l.game.cover.url)" alt="{{ l.game.name }} cover image"/>
@@ -50,6 +52,7 @@
                 </div>
               </div>
               </div>
+      </div>
     } 
 
 </div>

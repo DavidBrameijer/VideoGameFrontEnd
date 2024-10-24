@@ -1,0 +1,83 @@
+.friends-container {
+    display: flex;
+    flex-direction: column; /* Column layout */
+    padding: 10px; 
+}
+
+.search-item {
+    width: 50rem; /* Card width */
+    border: 2px solid #00ff99; /* Card border */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.6); /*Neon glow effect*/
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); */
+    background-color: #1b1b1b; /* Dark background to match the theme */
+    color: #fff;
+    overflow: hidden; /* To ensure rounded corners apply to the image */
+    font-family: 'Press Start 2P', sans-serif;
+    padding: 10px;
+    margin: 20px auto;
+}
+
+.search-content {
+    display: flex; /* Use flexbox to align image and text */
+    margin-left: 0;
+}
+
+.cover-image {
+    width: 200px; /* Fixed width for the cover image */
+    height: 300px; /* Maintain aspect ratio */
+    border: 2px solid #00ff99; /* Same glowing border for the image */
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.6); /* Neon glow for the image */
+}
+
+.text-content {
+    padding: 20px; /* Add padding around text content */
+    flex: 1; /* Allow the text content to fill remaining space */
+}
+
+.button {
+    display: block; /* Make buttons block level */
+    width: 200px; /* Full width */
+    padding: 10px; /* Button padding */
+    margin-top: 10px; /* Space between buttons */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners for buttons */
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.center-button{
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    margin: 5px;
+}
+.button:hover {
+    background-color: #0056b3; /* Darken button on hover */
+}
+
+h1, h2, h3{
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+h1 {
+
+    margin: 0 0 10px;
+  }
+   h2 {
+    
+    white-space: normal;
+    word-wrap: break-word; /* Ensure long text wraps */
+    /* color: #00ff99;  */
+    color: #ffdd00;
+    /* margin: 0 0 10px; */
+  }
+  p {
+    color: #ddd; /* Softer text color for readability */
+}
+
+h1, h3, p{
+    text-align: center;
+}
