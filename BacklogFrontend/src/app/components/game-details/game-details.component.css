@@ -6,9 +6,16 @@
     margin: 20px auto;
     padding:10px;
     border-radius: 5px;
-
+    overflow: hidden;
   }
-  
+.single-video {
+    border-radius: 5px;
+    padding: 10px;
+    width: fit-content;
+    margin: 10px auto; /* Adds some space around the video */
+    display: flex;
+    justify-content: center; /* Centers the video inside the div */
+}
 .youtube-player{
     /* width: auto; */
     width: 100%;
@@ -16,7 +23,8 @@
     overflow: hidden;
     position: relative;
     background-color: #222;
-    border: 3px solid #f90; /* Neon orange border for videos */
+    border: 3px solid #f90; 
+    border-radius: 5px;
     box-shadow: 0 0 10px #f90;
     padding: 10px;
   }

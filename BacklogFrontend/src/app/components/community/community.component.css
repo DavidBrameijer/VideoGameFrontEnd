@@ -3,23 +3,43 @@
     overflow-x: auto; 
     white-space: nowrap; 
     padding: 10px; 
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .top-users {
-    min-width: 150px; 
-    max-width: 150px; 
+    background-color: #f8f9fa; /* Light background for cards */
+    border: 1px solid #ddd; /* Border around the card */
+    border-radius: 10px;
+    min-width: 180px; 
+    max-width: 180px; 
     margin-right: 10px; 
     text-align: center; 
     overflow: hidden; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.top-users:hover {
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
 }
 
 .top-users img {
     max-width: 100%;
     height: auto; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     cursor: pointer;
 }
+.card-body {
+    padding: 15px;
+}
 .card-title {
-    margin: 0;
+    font-family: 'Press Start 2P', sans-serif;
+    margin: 10px 0;
+    font-size: 1.0em;
+    font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; 
@@ -35,4 +55,50 @@
     display: block; 
     max-width: 100%;
     box-sizing: border-box;
+}
+
+/* Styling for buttons inside cards */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the search bar */
+input[type="text"] {
+    width: 50%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Styling for the search button */
+button.search-btn {
+    width: 50%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button.search-btn:hover {
+    background-color: #218838;
 }

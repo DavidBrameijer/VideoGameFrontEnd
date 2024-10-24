@@ -12,7 +12,7 @@
     <h2 class="trailer">Trailer</h2>
     <div>
         @if (currentGameVideos.length > 0 && !showMore){
-        <div>
+        <div class="single-video">
             <app-youtube-player class="youtube-player" [videoId]="currentGameVideos[0].video_id" (play)="playVideo(0)" ></app-youtube-player>
         </div>
         }
