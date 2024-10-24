@@ -1,8 +1,8 @@
 @if (yourProfile) {
     <h1>This is your profile, {{currentUser.userName}}!</h1>
 
-    <p>Current level: {{currentUser.level}}</p>
-    <p>Current XP: {{currentUser.totalXp}}</p>
+    <p class="user-stats">Current level: {{currentUser.level}}</p>
+    <p class="user-stats">Current XP: {{currentUser.totalXp}}</p>
 
     <h3>Your friends:</h3>
     <div class="friends-container">
@@ -12,8 +12,8 @@
                     <img [src]="f.pfp" class="cover-image" (click)="navigateToProfile(f.id)" />
                     <div class="text-content">
                         <h2>{{ f.userName }}</h2>
-                        <p>Level: {{ f.level }}</p>
-                        <p>XP: {{ f.totalXp }}</p>
+                        <p class="friend-info">Level: {{ f.level }}</p>
+                        <p class="friend-info">XP: {{ f.totalXp }}</p>
                         <button class="button" (click)="navigateToBacklog(f.id)">View Backlog</button>
                         <button class="button" (click)="removeFriend(f.id)">Remove Friend</button>
                     </div>
@@ -25,8 +25,8 @@
 @else {
     <h1>This is {{currentUser.userName}}'s profile!</h1>
 
-    <p>Current level: {{currentUser.level}}</p>
-    <p>Current XP: {{currentUser.totalXp}}</p>
+    <p class="user-stats">Current level: {{currentUser.level}}</p>
+    <p class="user-stats">Current XP: {{currentUser.totalXp}}</p>
 
     <div class="center-button">
         <button class="button" (click)="navigateToBacklog(currentUser.id)">Backlog</button>
@@ -46,8 +46,8 @@
                     <img [src]="f.pfp" class="cover-image" (click)="navigateToProfile(f.id)" />
                     <div class="text-content">
                         <h2>{{ f.userName }}</h2>
-                        <p>Level: {{ f.level }}</p>
-                        <p>XP: {{ f.totalXp }}</p>
+                        <p class="friend-info">Level: {{ f.level }}</p>
+                        <p class="friend-info">XP: {{ f.totalXp }}</p>
                         <button class="button" (click)="navigateToBacklog(f.id)">Backlog</button>
                     </div>
                 </div>

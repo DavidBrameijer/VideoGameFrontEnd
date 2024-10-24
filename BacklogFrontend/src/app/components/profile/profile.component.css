@@ -26,8 +26,18 @@
 .cover-image {
     width: 200px; /* Fixed width for the cover image */
     height: 300px; /* Maintain aspect ratio */
+    cursor:pointer;
     border: 2px solid #00ff99; /* Same glowing border for the image */
     box-shadow: 0 0 15px rgba(0, 255, 153, 0.6); /* Neon glow for the image */
+}
+
+.user-stats {
+    font-size: 200%;
+}
+
+.cover-image:hover{
+    transform: scale(1.1); /* Zoom in slightly on hover */
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; /* Glowing effect */   
 }
 
 .text-content {
@@ -74,10 +84,13 @@ h1 {
     color: #ffdd00;
     /* margin: 0 0 10px; */
   }
-  p {
+p {
     color: #ddd; /* Softer text color for readability */
 }
 
 h1, h3, p{
     text-align: center;
+}
+.friend-info {
+    text-align:left
 }
