@@ -41,12 +41,17 @@ export class ProfileComponent {
     this.backendService.getUserById(id).subscribe(response => {
       console.log(response);
       this.currentUser = response;
-      if(this.currentUser.id == this.backendService.currentUser.id){
+      if(this.backendService.currentUser.id == id){
         this.yourProfile = true;
       }
       else if(this.backendService.currentUser.id)
       {
+        this.yourProfile = false;
         this.isLoggedIn = true;
+      }
+      else{
+        this.yourProfile = false;
+        this.isLoggedIn = false;
       }
     })
   }
