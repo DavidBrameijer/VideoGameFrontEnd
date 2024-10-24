@@ -5,6 +5,7 @@ import { UserLogsComponent } from "./components/user-logs/user-logs.component";
 import { GoogleSigninButtonModule, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { BackendService } from './services/backend.service';
 import { User } from './models/user';
+import { ScrollingService } from './services/scrolling.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent {
   loggedIn: boolean = false;
   currentUser: User = {} as User;
 
-  constructor( private backendService: BackendService, private socialAuthServiceConfig: SocialAuthService){}
+  constructor( private backendService: BackendService, private socialAuthServiceConfig: SocialAuthService, private scrollingService: ScrollingService){}
 
   ngOnInit() {
     //authState is a custom observable that will run again any time changes are noticed.
