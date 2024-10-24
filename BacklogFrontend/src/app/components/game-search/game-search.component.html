@@ -1,6 +1,6 @@
-<br>
+<!-- <br> -->
 <h1>Search for games!</h1>
-<div>
+<div class="search-bar">
   <!-- Name Input -->
   <label for="name">Name:</label>
   <input
@@ -55,17 +55,24 @@
     placeholder="Enter release year"
   />
 </div>
-
 <button (click)="filterGames()">Search</button>
+
 @if (filteredGames.length > 0)
 {
     @for (g of filteredGames; track $index) {
-        <h2>{{ g.name }}</h2>
-        <img [src]="g.cover.url" />
-        <p>Rating: {{ g.total_rating }}</p>
-        <p>Genres: {{ getGenres(g.genres) }}</p>
-        <button (click)="addToBacklog(g.id)">Add to backlog</button>
-        <button class="links" (click)="navigateToDetails(g.id)" >Game details</button>
-        
+      <div class="search-item">
+        <div class="search-content">
+          <img class="cover-image" [src]="getUpdatedImage(g.cover.url)" />
+          <div class="text-content">
+            <h2>{{ g.name }}</h2>
+            <p>Rating: {{ g.total_rating | number:'1.1-1'  }}</p>
+            <p>Genres: {{ getGenres(g.genres) }}</p>
+            
+            <button class="button" (click)="addToBacklog(g.id)">Add to backlog</button>
+            <button class="button" (click)="navigateToDetails(g.id)" >Game details</button>
+          </div>
+
+        </div>
+      </div>
     }
 }

@@ -55,6 +55,7 @@
     text-shadow: 0 2px 4px #000; /* Text shadow for better readability */
     margin: 5px 0;
     line-height: 1.2; /* Adjust line height for better readability */
+    cursor: pointer;
 }
 
 .card-text {

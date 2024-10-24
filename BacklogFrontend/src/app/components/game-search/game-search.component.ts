@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { BackLogDTO } from '../../models/progresslog';
 import { User } from '../../models/user';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-game-search',
   standalone: true,
-  imports: [FormsModule, RouterOutlet, RouterLink],
+  imports: [FormsModule, RouterOutlet, RouterLink, DecimalPipe],
   templateUrl: './game-search.component.html',
   styleUrl: './game-search.component.css'
 })
@@ -88,4 +89,7 @@ export class GameSearchComponent {
     });
   }
   
+  getUpdatedImage(url:string): string{
+    return url.replace("t_thumb", "t_original");
+  }
 }
