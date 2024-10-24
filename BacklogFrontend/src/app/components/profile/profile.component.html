@@ -32,7 +32,9 @@
         <button class="button" (click)="navigateToBacklog(currentUser.id)">Backlog</button>
     </div>
     @if (isLoggedIn) {
+        <div class="center-button">
         <button class="button" (click)="addFriend(currentUser.id)">Add Friend</button>
+        </div>
     }
     
 
