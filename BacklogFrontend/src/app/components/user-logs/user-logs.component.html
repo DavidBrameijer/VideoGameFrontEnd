@@ -1,77 +1,87 @@
 @if (yourBacklog) {
-  <h1>Your current backlog:</h1>
-  <div class="checkbox-container">
-    <label>
-      <input type="checkbox" [(ngModel)]="hideCompleted" />Show Backlog
-    </label>
-    <label>
-      <input type="checkbox" [(ngModel)]="showCompleted" /> Show completed games
-    </label>
-  </div>
-  
-<div cdkDropList (cdkDropListDropped)="drop($event)">
-    @for (l of userLogs; track $index) {
-      <div cdkDrag>
+<h1>Your current backlog:</h1>
+<div class="checkbox-container">
+  <label>
+    <input type="checkbox" [(ngModel)]="hideCompleted" />Show Backlog
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="showCompleted" /> Show completed games
+  </label>
+</div>
 
-        <div *ngIf="(!hideCompleted && !showCompleted) || (showCompleted && l.status === 'Complete') || (hideCompleted && l.status !== 'Complete')">
-              <div class="card">
-                <div class="card-content">
-                  <img class="cover-image" [src]="getUpdatedImage(l.game.cover.url)" alt="{{ l.game.name }} cover image"/>
-                  <div class="text-content">
-                    <h2>{{ l.game.name }}</h2>
-                    <p>Game status: {{ l.status }}</p>
-                    <p>Current Playtime: {{ l.playTime }} hours</p>
-                    
-                    <button class="button" (click)="displayToggle($index)">Update</button>
-                    
-                    <div *ngIf="display[$index]" class="update-section">
-                      <p>Status:</p>
-                      <div class="radio-container">
-                        <label for="notStarted{{$index}}">Not Started
-                          <input type="radio" id="notStarted{{$index}}" [(ngModel)]="updateLog.status" value="Not Started"/>
-                        </label>
-                
-                        <label for="inProgress{{$index}}">In-Progress
-                          <input type="radio" id="inProgress{{$index}}" [(ngModel)]="updateLog.status" value="In-Progress"/>
-                        </label>
-                
-                        <label for="complete{{$index}}">Complete
-                          <input type="radio" id="complete{{$index}}" [(ngModel)]="updateLog.status" value="Complete"/>
-                        </label>
-                      </div>
-                      <div class="playtime-section">
-                        <label for="playTime{{$index}}">Play Time:</label>
-                        <input type="number" id="playTime{{$index}}" [(ngModel)]="updateLog.playTime" placeholder="Enter current playtime" class="playtime-input"/>
-                      </div>
-                      
-                      <button class="button" (click)="updateGame(userLogs[$index], $index)">Submit Update</button>
-                    </div>
-                    
-                    <button class="button" (click)="navigateToDetails(l.game.id)">Game details</button>
-                  </div>
-                </div>
+<div cdkDropList (cdkDropListDropped)="drop($event)">
+  @for (l of userLogs; track $index) {
+  <div cdkDrag>
+    <div
+      *ngIf="(!hideCompleted && !showCompleted) || (showCompleted && l.status === 'Complete') || (hideCompleted && l.status !== 'Complete')">
+      <div class="card">
+        <div class="card-content">
+          <img class="cover-image" [src]="getUpdatedImage(l.game.cover.url)" alt="{{ l.game.name }} cover image" />
+          <div class="text-content">
+            <h2>{{ l.game.name }}</h2>
+            <p>Game status: {{ l.status }}</p>
+            <p>Current Playtime: {{ l.playTime }} hours</p>
+
+            <button class="button" (click)="displayToggle($index)">Update</button>
+
+            <div *ngIf="display[$index]" class="update-section">
+              <p>Status:</p>
+              <div class="radio-container">
+                <label for="notStarted{{$index}}">Not Started
+                  <input type="radio" id="notStarted{{$index}}" [(ngModel)]="updateLog.status" value="Not Started" />
+                </label>
+
+                <label for="inProgress{{$index}}">In-Progress
+                  <input type="radio" id="inProgress{{$index}}" [(ngModel)]="updateLog.status" value="In-Progress" />
+                </label>
+
+                <label for="complete{{$index}}">Complete
+                  <input type="radio" id="complete{{$index}}" [(ngModel)]="updateLog.status" value="Complete" />
+                </label>
               </div>
+              <div class="playtime-section">
+                <label for="playTime{{$index}}">Play Time:</label>
+                <input type="number" id="playTime{{$index}}" [(ngModel)]="updateLog.playTime"
+                  placeholder="Enter current playtime" class="playtime-input" />
               </div>
+
+              <button class="button" (click)="updateGame(userLogs[$index], $index)">Submit Update</button>
+            </div>
+
+            <button class="button" (click)="navigateToDetails(l.game.id)">Game details</button>
+          </div>
+        </div>
       </div>
-    } 
+    </div>
+  </div>
+  }
 
 </div>
 } @else {
-  <h1>{{currentUser.userName}}'s Backlog</h1>
-  @for (l of userLogs; track $index) {
+<h1>{{currentUser.userName}}'s Backlog</h1>
+<div class="checkbox-container">
+  <label>
+    <input type="checkbox" [(ngModel)]="hideCompleted" />Show Backlog
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="showCompleted" /> Show completed games
+  </label>
+</div>
 
-    <div class="card">
-      <div class="card-content">
-        <img class="cover-image" [src]="getUpdatedImage(l.game.cover.url)" alt="{{ l.game.name }} cover image"/>
-        <div class="text-content">
-          <h2>{{ l.game.name }}</h2>
-          <p>Game status: {{ l.status }}</p>
-          <p>Current Playtime: {{ l.playTime }} hours</p>
-          
-          <button class="button" (click)="navigateToDetails(l.game.id)">Game details</button>
-        </div>
-      </div>
-      </div>
-  }
-}
+@for (l of userLogs; track $index) {
+<div
+  *ngIf="(!hideCompleted && !showCompleted) || (showCompleted && l.status === 'Complete') || (hideCompleted && l.status !== 'Complete')">
+  <div class="card">
+    <div class="card-content">
+      <img class="cover-image" [src]="getUpdatedImage(l.game.cover.url)" alt="{{ l.game.name }} cover image" />
+      <div class="text-content">
+        <h2>{{ l.game.name }}</h2>
+        <p>Game status: {{ l.status }}</p>
+        <p>Current Playtime: {{ l.playTime }} hours</p>
 
+        <button class="button" (click)="navigateToDetails(l.game.id)">Game details</button>
+      </div>
+    </div>
+  </div>
+</div>
+}}
